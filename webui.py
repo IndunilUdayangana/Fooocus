@@ -39,7 +39,7 @@ def generate_clicked(task: worker.AsyncTask):
 
     if len(task.args) == 0:
         return
-
+    print(task.args)
     execution_start_time = time.perf_counter()
     finished = False
 
