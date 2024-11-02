@@ -97,6 +97,7 @@ if __name__ == "__main__":
     parser.add_argument('--prompt', type=str, required=True, help='The prompt to use for image generation')
     parser.add_argument('--num_of_images', type=int, required=True, help='Number of images to generate')
     args_cli = parser.parse_args()
+    print(args_cli)
     
     # Create the task
     # task = get_task()
