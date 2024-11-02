@@ -41,6 +41,7 @@ def generate_clicked(task: worker.AsyncTask):
 
     execution_start_time = time.perf_counter()
     finished = False
+    generated_images = []
 
     # Start the task
     worker.async_tasks.append(task)
