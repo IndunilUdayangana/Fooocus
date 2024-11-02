@@ -40,6 +40,11 @@ args_parser.parser.add_argument("--always-download-new-model", action='store_tru
 args_parser.parser.add_argument("--rebuild-hash-cache", help="Generates missing model and LoRA hashes.",
                                 type=int, nargs="?", metavar="CPU_NUM_THREADS", const=-1)
 
+                                # New arguments for prompt and number of images
+args_parser.parser.add_argument("--prompt", type=str, required=True, help="The prompt to use for image generation.")
+args_parser.parser.add_argument("--num_of_images", type=int, required=True, help="Number of images to generate.")
+
+
 args_parser.parser.set_defaults(
     disable_cuda_malloc=True,
     in_browser=True,

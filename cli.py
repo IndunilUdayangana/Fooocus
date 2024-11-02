@@ -23,7 +23,6 @@ from modules.private_logger import get_current_html_path
 from modules.ui_gradio_extensions import reload_javascript
 from modules.auth import auth_enabled, check_auth
 from modules.util import is_json
-import argparse
 
 
 def generate_clicked(task: worker.AsyncTask):
@@ -93,11 +92,11 @@ def sort_enhance_images(images, task):
 if __name__ == "__main__":
 
     # Parsing command-line arguments
-    parser = argparse.ArgumentParser(description='Generate images using command-line arguments')
-    parser.add_argument('--prompt', type=str, required=True, help='The prompt to use for image generation')
-    parser.add_argument('--num_of_images', type=int, required=True, help='Number of images to generate')
-    args_cli = parser.parse_args()
-    print(args_cli)
+    # parser = argparse.ArgumentParser(description='Generate images using command-line arguments')
+    # parser.add_argument('--prompt', type=str, required=True, help='The prompt to use for image generation')
+    # parser.add_argument('--num_of_images', type=int, required=True, help='Number of images to generate')
+    # args_cli = parser.parse_args()
+    # print(args_cli)
     
     # Create the task
     # task = get_task()
@@ -108,8 +107,8 @@ if __name__ == "__main__":
         #  [False, 'city park, look up view cloudy sky, sunlights, 50mm lens, hyper realistic, landscape photography, magazine aesthetic, 16k, vibrant colors --style raw --ar 16:9 --v 6.0', '', ['Fooocus V2', 'Fooocus Enhance', 'Fooocus Sharp'], 'Speed', '1152×896 <span style="color: grey;"> ∣ 9:7</span>', 24, 'png', '8800040169824511047', False, 2, 4, 'juggernautXL_v8Rundiffusion.safetensors', 'None', 0.5, True, 'sd_xl_offset_example-lora_1.0.safetensors', 0.1, True, 'None', 1, True, 'None', 1, True, 'None', 1, True, 'None', 1, True, 'uov', 'Upscale (2x)', None, [], None, '', None, False, False, False, False, 1.5, 0.8, 0.3, 7, 2, 'dpmpp_2m_sde_gpu', 'karras', 'Default (model)', -1, -1, -1, -1, -1, -1, False, False, False, False, 64, 128, 'joint', 0.25, False, 1.01, 1.02, 0.99, 0.95, False, False, 'v2.6', 1, 0.618, False, False, 0, False, False, 'fooocus', None, 0.5, 0.6, 'ImagePrompt', None, 0.5, 0.6, 'ImagePrompt', None, 0.5, 0.6, 'ImagePrompt', None, 0.5, 0.6, 'ImagePrompt', False, 0, False, None, False, 'Disabled', 'Before First Enhancement', 'Original Prompts', False, '', '', '', 'sam', 'full', 'vit_b', 0.25, 0.3, 0, False, 'v2.6', 1, 0.618, 0, False, False, '', '', '', 'sam', 'full', 'vit_b', 0.25, 0.3, 0, False, 'v2.6', 1, 0.618, 0, False, False, '', '', '', 'sam', 'full', 'vit_b', 0.25, 0.3, 0, False, 'v2.6', 1, 0.618, 0, False]
 
      # Update args based on command-line input
-    args[1] = args_cli.prompt  # Update the prompt (2nd item)
-    args[6] = args_cli.num_of_images  # Update number of images (7th item)
+    args[1] = args_manager.args.prompt  # Update the prompt (2nd item)
+    args[6] = args_manager.args.num_of_images  # Update number of images (7th item)
     args[8] = random.randint(10**18, 10**19 - 1)  # Generate a random 19-digit number
 
     # Run the generation process
